@@ -1,11 +1,48 @@
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { Settings, Home } from 'lucide-react';
+import logoImage from 'figma:asset/508fa746b183626a8fca6be4c02b3aa5a88b1f8f.png';
 
 export default function OptionC() {
   return (
     <div className="size-full overflow-y-auto overflow-x-hidden bg-gradient-to-b from-rose-50 to-orange-50">
       {/* Hero Section - Watercolor Brooklyn Bridge */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Home Button */}
+        <motion.button
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="absolute top-8 left-8 z-20 p-2 rounded-full hover:bg-white/20 transition-colors"
+          style={{ color: '#7eb6eb' }}
+        >
+          <Home size={24} />
+        </motion.button>
+
+        {/* Logo at top center */}
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="absolute top-8 left-1/2 -translate-x-1/2 z-20"
+        >
+          <img 
+            src={logoImage} 
+            alt="Social Company" 
+            className="w-[400px] h-auto"
+          />
+        </motion.div>
+
+        {/* Settings Button */}
+        <motion.button
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="absolute top-8 right-8 z-20 p-2 rounded-full hover:bg-white/20 transition-colors"
+          style={{ color: '#7eb6eb' }}
+        >
+          <Settings size={24} />
+        </motion.button>
+
         {/* Painted Background Effect */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
@@ -26,50 +63,6 @@ export default function OptionC() {
               }}
             />
           </motion.div>
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 px-8 text-center max-w-md mx-auto">
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xs uppercase tracking-[0.3em] text-rose-700/70 mb-8"
-          >
-            Iconic Architecture
-          </motion.p>
-
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-6xl mb-6 text-rose-900/80 tracking-tight leading-tight"
-          >
-            Brooklyn
-            <br />
-            Bridge
-          </motion.h1>
-
-          <motion.p
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-base text-rose-800/60 mb-12 leading-relaxed"
-          >
-            Steel cables and stone towers connecting two worlds
-          </motion.p>
-
-          <motion.button
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-rose-700/20 backdrop-blur-sm text-rose-900 px-10 py-4 rounded-full text-base inline-flex items-center gap-2 shadow-lg border border-rose-300/30"
-          >
-            Explore Bridge
-            <ArrowRight className="size-5" />
-          </motion.button>
         </div>
       </section>
     </div>
