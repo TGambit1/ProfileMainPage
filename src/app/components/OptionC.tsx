@@ -2,9 +2,21 @@ import { motion } from 'motion/react';
 import { Settings, Home } from 'lucide-react';
 import logoImage from 'figma:asset/508fa746b183626a8fca6be4c02b3aa5a88b1f8f.png';
 
-export default function OptionC() {
+interface OptionCProps {
+  onSettingsClick?: () => void;
+  theme?: 'light' | 'dark' | 'auto';
+  accentColor?: string;
+}
+
+export default function OptionC({ onSettingsClick, theme = 'light', accentColor = '#7eb6eb' }: OptionCProps) {
+  const isDark = theme === 'dark';
+  
   return (
-    <div className="size-full overflow-y-auto overflow-x-hidden bg-gradient-to-b from-rose-50 to-orange-50">
+    <div className={`size-full overflow-y-auto overflow-x-hidden ${
+      isDark 
+        ? 'bg-gradient-to-b from-slate-900 to-slate-800' 
+        : 'bg-gradient-to-b from-rose-50 to-orange-50'
+    }`}>
       {/* Hero Section - Watercolor Brooklyn Bridge */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Home Button */}
@@ -13,7 +25,7 @@ export default function OptionC() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="absolute top-8 left-8 z-20 p-2 rounded-full hover:bg-white/20 transition-colors"
-          style={{ color: '#7eb6eb' }}
+          style={{ color: accentColor }}
         >
           <Home size={24} />
         </motion.button>
@@ -37,8 +49,9 @@ export default function OptionC() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          onClick={onSettingsClick}
           className="absolute top-8 right-8 z-20 p-2 rounded-full hover:bg-white/20 transition-colors"
-          style={{ color: '#7eb6eb' }}
+          style={{ color: accentColor }}
         >
           <Settings size={24} />
         </motion.button>
