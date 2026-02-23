@@ -75,6 +75,26 @@ export default function OptionC({ onSettingsClick, theme = 'light', accentColor 
                 opacity: 0.55
               }}
             />
+            
+            {/* Welcome Text */}
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full text-center"
+            >
+              <h1 
+                className="text-6xl font-light tracking-wide"
+                style={{ 
+                  color: accentColor,
+                  textShadow: isDark 
+                    ? '0 2px 20px rgba(0,0,0,0.5)' 
+                    : '0 2px 20px rgba(255,255,255,0.8)'
+                }}
+              >
+                Welcome to Home
+              </h1>
+            </motion.div>
           </motion.div>
         </div>
       </section>
