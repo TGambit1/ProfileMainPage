@@ -92,7 +92,7 @@ export default function OptionC({ onSettingsClick, theme = 'light', accentColor 
                     : '0 2px 20px rgba(255,255,255,0.8)'
                 }}
               >
-                Welcome to Home
+                Welcome Home
               </h1>
             </motion.div>
           </motion.div>
